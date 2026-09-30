@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tetris</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a href="../index.html" style="position:fixed;top:12px;left:12px;z-index:99;background:rgba(0,0,0,.6);color:#fff;text-decoration:none;padding:6px 14px;border-radius:20px;font-size:14px;">← 返回首页</a>
+  <div class="wrapper">
+    <h1 class="game-title">俄罗斯方块</h1>
+    <div class="game-container">
+      <canvas id="board" width="300" height="600"></canvas>
+
+      <aside class="panel">
+        <div class="panel-section theme-toggle-section">
+          <span class="label">亮色模式</span>
+          <label class="switch">
+            <input type="checkbox" id="theme-toggle" aria-label="Alternar modo claro" />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="panel-section">
+          <span class="label">SCORE</span>
+          <span class="value" id="score">0</span>
+        </div>
+        <div class="panel-section">
+          <span class="label">LINES</span>
+          <span class="value" id="lines">0</span>
+        </div>
+        <div class="panel-section">
+          <span class="label">LEVEL</span>
+          <span class="value" id="level">1</span>
+        </div>
+
+        <div class="panel-section">
+          <span class="label">道具</span>
+          <span class="value power-status" id="power-status">&mdash;</span>
+        </div>
+
+        <div class="panel-section">
+          <span class="label">NEXT</span>
+          <canvas id="next-canvas" width="120" height="120"></canvas>
+        </div>
+
+        <div class="panel-section controls">
+          <span class="label">操作</span>
+          <ul>
+            <li><kbd>←</kbd><kbd>→</kbd> 移动</li>
+            <li><kbd>↑</kbd> 旋转</li>
+            <li><kbd>↓</kbd> 加速下落</li>
+            <li><kbd>Space</kbd> 直接落下</li>
+            <li><kbd>P</kbd> 暂停</li>
+          </ul>
+        </div>
+
+        <div class="panel-section legend">
+          <span class="label">道具说明</span>
+          <ul>
+            <li><span class="glyph">&#128163;</span> Bomba: área 3×3</li>
+            <li><span class="glyph">&#9889;</span> Rayo: fila y columna</li>
+            <li><span class="glyph">&#127912;</span> Tinte: comodines</li>
+            <li><span class="glyph">&#11015;</span> Gravedad: compacta</li>
+            <li><span class="glyph">&#10052;</span> Congelar: 5 s</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <div id="overlay" class="overlay hidden">
+      <div class="overlay-box">
+        <p id="overlay-title">GAME OVER</p>
+        <p id="overlay-score"></p>
+        <button id="restart-btn">重新开始</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
